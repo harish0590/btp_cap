@@ -1,0 +1,11 @@
+###
+POST http://localhost:4004/odata/v4/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB55C1978999/boost
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB55C1978999/largestOrder()
+
+###
+GET http://localhost:4004/odata/v4/CatalogService/POs
