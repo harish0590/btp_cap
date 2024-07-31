@@ -7,14 +7,57 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "express": "^4"
+    "express": "^4",
+    "@sap/cds-hana": "^2",
+    "@sap/xssec": "^3"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
     "@sap/eslint-plugin-cds": "^3",
+    "@sap/ux-specification": "^1.120.15",
     "eslint": "^9"
   },
   "scripts": {
-    "start": "cds watch"
+    "start": "cds-serve",
+    "watch-purchaseorder": "cds watch --open purchaseorder/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/purchaseorder"
+  ],
+  "cds": {
+    "requires": {
+      "db": "hana",
+      "uaa": {
+        "kind": "xsuaa"
+      },
+      "auth": {
+        "[development]": {
+          "strategy": "mocked",
+          "users": {
+            "harish": {
+              "roles": [
+                "Viewer"
+              ],
+              "userAttributes": {
+                "bankName": ["My Bank of London"]
+              }
+            },
+            "vineela": {
+              "roles": [
+                "Viewer",
+                "Admin"
+              ],
+              "userAttributes": {
+                "bankName": ""
+              }
+            }
+          }
+        },
+        "[production]": {
+          "strategy": "JWT"
+        }
+      }
+    }
   }
 }

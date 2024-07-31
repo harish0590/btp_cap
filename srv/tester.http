@@ -9,3 +9,7 @@ GET http://localhost:4004/odata/v4/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB
 
 ###
 GET http://localhost:4004/odata/v4/CatalogService/POs
+
+### Testing the security locally
+GET http://localhost:4004/odata/v4/CatalogService/EmployeesSet
+Authorization: Basic harish:
